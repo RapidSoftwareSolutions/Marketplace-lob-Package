@@ -1,0 +1,293 @@
+{
+	"createAddress": {
+		"section": "addresses",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"name": "String",
+			"company": "String",
+			"addressLine1": "String",
+			"addressLine2": "String",
+			"addressCountry": "String",
+			"addressCity": "String",
+			"addressState": "String",
+			"addressZip": "String",
+			"phone": "String",
+			"email": "String",
+			"metadata": "String"
+		}
+	},
+	"getAddress": {
+		"section": "addresses",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"addressId": "String"
+		}
+	},
+	"deleteAddress": {
+		"section": "addresses",
+		"name": "delete",
+		"keys": {
+			"apiKey": "String",
+			"addressId": "String"
+		}
+	},
+	"getAllAddresses": {
+		"section": "addresses",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"verifyAddress": {
+		"section": "verification",
+		"name": "verify",
+		"keys": {
+			"apiKey": "String",
+			"name": "String",
+			"addressLine1": "String",
+			"addressLine2": "String",
+			"addressCity": "String",
+			"addressState": "String",
+			"addressZip": "String",
+			"addressCountry": "String"
+		}
+	},
+	"createPostcard": {
+		"section": "postcards",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"cardTo": "String",
+			"cardFrom": "String",
+			"front": "String",
+			"back": "String",
+			"data": "JSON",
+			"message": "String",
+			"size": "String",
+			"metadata": "String"
+		}
+	},
+	"retrievePostcard": {
+		"section": "postcards",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"postcardId": "String"
+		}
+	},
+	"getAllPostcards": {
+		"section": "postcards",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"createLetter": {
+		"section": "letters",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"letterTo": "String",
+			"letterFrom": "String",
+			"color": "String",
+			"file": "String",
+			"data": "JSON",
+			"doubleSided": "String",
+			"addressPlacement": "String",
+			"returnEnvelope": "String",
+			"perforatedPage": "String",
+			"extraService": "String",
+			"metadata": "String"
+		}
+	},
+	"retrieveLetter": {
+		"section": "letters",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"letterId": "String"
+		}
+	},
+	"getAllLetters": {
+		"section": "letters",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"createCheck": {
+		"section": "checks",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"checkTo": "String",
+			"checkFrom": "String",
+			"bankAccount": "String",
+			"amount": "String",
+			"memo": "String",
+			"checkNumber": "String",
+			"logo": "String",
+			"message": "String",
+			"checkBottom": "String",
+			"attachment": "String",
+			"data": "JSON",
+			"mailType": "String",
+			"metadata": "String"
+		}
+	},
+	"retrieveCheck": {
+		"section": "checks",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"checkId": "String"
+		}
+	},
+	"getAllChecks": {
+		"section": "checks",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"createBankAccount": {
+		"section": "bankAccounts",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"routingNumber": "String",
+			"accountNumber": "String",
+			"accountType": "String",
+			"signatory": "String",
+			"metadata": "String"
+		}
+	},
+	"retrieveBankAccount": {
+		"section": "bankAccounts",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"bankAccountId": "String"
+		}
+	},
+	"deleteBankAccount": {
+		"section": "bankAccounts",
+		"name": "delete",
+		"keys": {
+			"apiKey": "String",
+			"bankAccountId": "String"
+		}
+	},
+	"verifyBankAccount": {
+		"section": "bankAccounts",
+		"name": "verify",
+		"keys": {
+			"apiKey": "String",
+			"amounts": "String",
+			"bankAccoundId": "String"
+		}
+	},
+	"getAllBankAccounts": {
+		"section": "bankAccounts",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"createAreaMailing": {
+		"section": "areas",
+		"name": "create",
+		"keys": {
+			"apiKey": "String",
+			"description": "String",
+			"routes": "JSON",
+			"targetType": "String",
+			"front": "String",
+			"back": "String",
+			"data": "JSON",
+			"metadata": "String"
+		}
+	},
+	"retrieveAreaMailing": {
+		"section": "areas",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"areaId": "String"
+		}
+	},
+	"getAllAreaMailings": {
+		"section": "areas",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"limit": "String",
+			"offset": "String",
+			"include": "String",
+			"metadata": "String",
+			"dateCreated": "JSON"
+		}
+	},
+	"retrieveRoutesByZipcode": {
+		"section": "routes",
+		"name": "retrieve",
+		"keys": {
+			"apiKey": "String",
+			"zipCode": "String"
+		}
+	},
+	"getAllRoutes": {
+		"section": "routes",
+		"name": "list",
+		"keys": {
+			"apiKey": "String",
+			"zipCodes": "JSON"
+		}
+	},
+	"getAllCountries": {
+		"section": "countries",
+		"name": "list",
+		"keys": {
+			"apiKey": "String"
+		}
+	},
+	"getAllStates": {
+		"section": "states",
+		"name": "list",
+		"keys": {
+			"apiKey": "String"
+		}
+	}
+}
