@@ -2,7 +2,7 @@ module.exports.do = (req, res) => { res.status(200).send({
     "package": "Lob",
     "tagline": "Lob API",
     "description": "This API enables developers to send real-life mail (postcards, checks etc.) to their customers via an automated API.",
-    "image": "https:\/\/s3-us-west-2.amazonaws.com\/lob-assets\/LobLogoWhite.png",
+    "image": "http://logo.clearbit.com/lob.com",
     "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-lob-Package",
     "accounts": {
         "domain": "lob.com",
