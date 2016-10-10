@@ -7,7 +7,7 @@ module.exports = (req, res) => {
 
 	let { 
 		apiKey,
-		bankAccoundId,
+		bankAccountId,
 		amounts,
 		to="to" } = req.body.args;
 
@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         contextWrites: {}
     };
 
-	if(!apiKey || !bankAccoundId) {
+	if(!apiKey || !bankAccountId) {
 		lib.callback('Fill in required fields.', res, {to});
     	return;
 	}
@@ -30,7 +30,7 @@ module.exports = (req, res) => {
 
 	let client = Lob(apiKey);
 	
-	return client.bankAccounts.verify(bankAccoundId, {
+	return client.bankAccounts.verify(bankAccountId, {
 	  	amounts: amounts
 	}, (err, result) => {
 	  	if(err) {

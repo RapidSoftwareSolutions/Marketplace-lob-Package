@@ -619,7 +619,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "type": "String",
             "info": "Required: Access token."
         }, {
-            "name": "bankAccoundId",
+            "name": "bankAccountId",
             "type": "String",
             "info": "Bank account id to verify" 
         }, {

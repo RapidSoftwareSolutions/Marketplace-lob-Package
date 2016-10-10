@@ -34,7 +34,7 @@ This API enables developers to send real-life mail (postcards, checks etc.) to t
 * [getAllRoutes](#getAllRoutes)
 * [getAllCountries](#getAllCountries)
 * [getAllStates](#getAllStates)
- 
+
 <a name="createAddress"/>
 ## Lob.createAddress
 Creates a new address object.
