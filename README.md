@@ -1,11 +1,16 @@
+[settings]:https://github.com/RapidSoftwareSolutions/Marketplace-lob-Package/blob/master/instructions/settings.png?raw=true
+
 # Lob Package
 This API enables developers to send real-life mail (postcards, checks etc.) to their customers via an automated API.
 * Domain: lob.com
 * Credentials: apiKey
 
 ## How to get credentials: 
-0. Item one 
-1. Item two
+0. Go to [Lob Dashboard](https://dashboard.lob.com).
+1. Go to settings account settings.
+ ![Account settings][settings]
+2. Switch to _*API KEYS*_.
+3. Copy and save your credentials.
 
 ## TOC: 
 * [createAddress](#createAddress)
@@ -41,7 +46,7 @@ Creates a new address object.
 
 | Field         | Type  | Description
 |---------------|-------|----------
-| apiKey        | String| Required: Access token.
+| apiKey        | credentials| Required: Access token.
 | description   | String| Optional.
 | name          | String| Optional: Either name or company is required, you may also add both. The total string for name must be no longer than 50 characters. If both name and company are provided, they will be printed on two separate lines above the rest of the address.
 | company       | String| Optional: Either name or company is required, you may also add both. The total string for company must be no longer than 200 characters. If both name and company are provided, they will be printed on two separate lines above the rest of the address.
@@ -61,7 +66,7 @@ Retrieves the details of an existing address. You need only supply the unique cu
 
 | Field    | Type  | Description
 |----------|-------|----------
-| apiKey   | String| Required: Access token.
+| apiKey   | credentials| Required: Access token.
 | addressId| String| Required: The identifier of the address to be retrieved.
 
 <a name="deleteAddress"/>
@@ -79,7 +84,7 @@ Returns a list of your addresses. The addresses are returned sorted by creation 
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -92,7 +97,7 @@ Validates a given address.
 
 | Field         | Type  | Description
 |---------------|-------|----------
-| apiKey        | String| Required: Access token.
+| apiKey        | credentials| Required: Access token.
 | name          | String| Optional
 | addressLine1  | String| Optional
 | addressLine2  | String| Optional
@@ -107,7 +112,7 @@ Create a new postcard.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | description| String| Optional.
 | to         | String| Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID
 | from       | String| Optional: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID.
@@ -133,7 +138,7 @@ Returns a list of postcards. The returned postcards are sorted by creation date,
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -146,7 +151,7 @@ Create a new letter.
 
 | Field           | Type  | Description
 |-----------------|-------|----------
-| apiKey          | String| Required: Access token.
+| apiKey          | credentials| Required: Access token.
 | description     | String| Optional
 | letterTo        | String| Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID.
 | letterFrom      | String| Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID.
@@ -166,7 +171,7 @@ Retrieves the letter with a given ID. You need only supply the unique letter ID 
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Required: Access token.
+| apiKey  | credentials| Required: Access token.
 | letterId| String| Required: The identifier of the letter to be retrieved.
 
 <a name="getAllLetters"/>
@@ -175,7 +180,7 @@ Returns a list of letters. The letters are returned sorted by creation date, wit
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -188,7 +193,7 @@ Create a new check.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | description| String| Optional
 | checkTo    | String| Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID.
 | checkFrom  | String| Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID.
@@ -210,7 +215,7 @@ Retrieves the check with a given ID. You need only supply the unique ID that was
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Required: Access token.
+| apiKey | credentials| Required: Access token.
 | checkId| String| Required: The identifier of the check to be retrieved.
 
 <a name="getAllChecks"/>
@@ -219,7 +224,7 @@ Returns a list of checks. The returned checks are sorted by creation date, with 
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -232,7 +237,7 @@ Create a new bank account. Bank accounts created in live mode will need to be ve
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| apiKey       | String| Required: Access token.
+| apiKey       | credentials| Required: Access token.
 | description  | String| Optional
 | routingNumber| String| Required: The bank's routing number
 | accountNumber| String| Required: The account number at the bank
@@ -246,7 +251,7 @@ Retrieves the bank account with a given ID. You need only supply the unique ID t
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| apiKey       | String| Required: Access token.
+| apiKey       | credentials| Required: Access token.
 | bankAccountId| String| Required: The identifier of the bank account to be retrieved.
 
 <a name="deleteBankAccount"/>
@@ -255,7 +260,7 @@ Permanently deletes a bank account. It cannot be undone.
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| apiKey       | String| Required: Access token.
+| apiKey       | credentials| Required: Access token.
 | bankAccountId| String| Required: The identifier of the bank account to be deleted.
 
 <a name="verifyBankAccount"/>
@@ -264,7 +269,7 @@ Verify a bank account in order to create a check.
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| apiKey       | String| Required: Access token.
+| apiKey       | credentials| Required: Access token.
 | bankAccoundId| String| Bank account id to verify
 | amounts      | JSON  | Required: In live mode, an array containing the two micro deposits (in cents) placed in the bank account. In test mode, no micro deposits will be placed - use any two integers between 1 and 100
 
@@ -274,7 +279,7 @@ Returns a list of bank accounts. The bank accounts are returned sorted by creati
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -287,7 +292,7 @@ Create a new mailing for a specific zip or delivery routes
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | description| String| Optional
 | routes     | JSON  | Required: Must enter a zip code or delivery route. This can be an array of zip codes or delivery routes.
 | targetType | String| Optional: A string designating the target recipients. Options are all and residential. Defaults to all.
@@ -302,7 +307,7 @@ Retrieves the area mailing with a given ID. You need only supply the unique ID t
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Required: Access token.
+| apiKey| credentials| Required: Access token.
 | areaId| String| Required: The identifier of the area mail to be retrieved.
 
 <a name="getAllAreaMailings"/>
@@ -311,7 +316,7 @@ Returns a list of area mailings. The area mailings are returned sorted by creati
 
 | Field      | Type  | Description
 |------------|-------|----------
-| apiKey     | String| Required: Access token.
+| apiKey     | credentials| Required: Access token.
 | limit      | String| Optional: How many results to return, default=10, max 100, must be an integer
 | offset     | String| Optional: Return requested # of items starting with the value, default=0, must be an integer
 | include    | String| Optional: Request that the response include the total count by specifying include[]=total_count
@@ -324,7 +329,7 @@ Retrieves the delivery routes for the zip code or zip-route requested.
 
 | Field  | Type  | Description
 |--------|-------|----------
-| apiKey | String| Required: Access token.
+| apiKey | credentials| Required: Access token.
 | zipCode| String| Required: The zip codes or zip-routes to filter by.
 
 <a name="getAllRoutes"/>
@@ -333,7 +338,7 @@ Filters by the zip codes or zip-routes requested.
 
 | Field   | Type  | Description
 |---------|-------|----------
-| apiKey  | String| Required: Access token.
+| apiKey  | credentials| Required: Access token.
 | zipCodes| JSON  | Required: The zip codes or zip-routes to filter by.
 
 <a name="getAllCountries"/>
@@ -342,7 +347,7 @@ Returns a list of all currently supported countries. You can use these when subm
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Required: Access token.
+| apiKey| credentials| Required: Access token.
 
 <a name="getAllStates"/>
 ## Lob.getAllStates
@@ -350,5 +355,5 @@ Returns a list of all US states. You can use these when submitting addresses, jo
 
 | Field | Type  | Description
 |-------|-------|----------
-| apiKey| String| Required: Access token.
+| apiKey| credentials| Required: Access token.
 

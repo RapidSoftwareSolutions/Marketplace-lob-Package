@@ -13,7 +13,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Creates a new address object.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -76,7 +76,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the details of an existing address. You need only supply the unique customer identifier that was returned upon address creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "addressId",
@@ -95,7 +95,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Permanently deletes a customer. It cannot be undone.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "addressId",
@@ -114,7 +114,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of your addresses. The addresses are returned sorted by creation date, with the most recently created addresses appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -149,7 +149,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Validates a given address.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "name",
@@ -192,7 +192,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Create a new postcard.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -243,7 +243,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the postcard with a given ID. You need only supply the unique postcard ID that was returned upon postcard creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "postcardId",
@@ -262,7 +262,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of postcards. The returned postcards are sorted by creation date, with the most recently created postcards appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -297,7 +297,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Create a new letter.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -360,7 +360,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the letter with a given ID. You need only supply the unique letter ID that was returned upon letter creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "letterId",
@@ -379,7 +379,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of letters. The letters are returned sorted by creation date, with the most recently created letters appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -414,7 +414,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Create a new check.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -485,7 +485,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the check with a given ID. You need only supply the unique ID that was returned upon check creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "checkId",
@@ -504,7 +504,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of checks. The returned checks are sorted by creation date, with the most recently created checks appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -539,7 +539,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Create a new bank account. Bank accounts created in live mode will need to be verified via micro deposits before being able to send live checks. The deposits will appear in the bank account in 2-3 business days and have the description \"VERIFICATION\".",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -578,7 +578,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the bank account with a given ID. You need only supply the unique ID that was returned upon bank account creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "bankAccountId",
@@ -597,7 +597,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Permanently deletes a bank account. It cannot be undone.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "bankAccountId",
@@ -616,7 +616,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Verify a bank account in order to create a check.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "bankAccountId",
@@ -639,7 +639,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of bank accounts. The bank accounts are returned sorted by creation date, with the most recently created bank account appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -674,7 +674,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Create a new mailing for a specific zip or delivery routes",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "description",
@@ -717,7 +717,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the area mailing with a given ID. You need only supply the unique ID that was returned upon area mail creation.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "areaId",
@@ -736,7 +736,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of area mailings. The area mailings are returned sorted by creation date, with the most recently created area mail appearing first.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "limit",
@@ -771,7 +771,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Retrieves the delivery routes for the zip code or zip-route requested.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "zipCode",
@@ -790,7 +790,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Filters by the zip codes or zip-routes requested.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }, {
             "name": "zipCodes",
@@ -809,7 +809,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of all currently supported countries. You can use these when submitting addresses, jobs, and verification requests.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }],
         "callbacks": [{
@@ -824,7 +824,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "description": "Returns a list of all US states. You can use these when submitting addresses, jobs, and verification requests.",
         "args": [{
             "name": "apiKey",
-            "type": "String",
+            "type": "credentials",
             "info": "Required: Access token."
         }],
         "callbacks": [{
