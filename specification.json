@@ -64,7 +64,7 @@
 		"section": "postcards",
 		"name": "create",
 		"keys": {
-			"$$apiKey": "String",
+			"$apiKey": "String",
 			"description": "String",
 			"$cardTo": "String",
 			"$cardFrom": "String",
