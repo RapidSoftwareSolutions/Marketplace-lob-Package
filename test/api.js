@@ -317,7 +317,14 @@ describe('/Lob Package', function() {
         .send({args: { 
             apiKey, 
             description, 
-            checkTo: addressId,
+            checkTo: JSON.stringify({
+                name: 'TEST',
+                address_line1: "123 Test Stree",
+                address_city: "Mountain View",
+                address_state: "CA",
+                address_zip: 94041,
+                address_country: "US"
+            }),
             checkFrom: addressId,
             bankAccount,
             checkBottom: back,
@@ -326,6 +333,7 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
+            console.log(data.body)
             if(data.body.callback == 'success') done();
             else done(data.body);
 

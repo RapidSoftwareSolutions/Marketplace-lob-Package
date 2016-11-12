@@ -62,6 +62,8 @@ Creates a new address object.
 | email         | String     | Optional: The total string must be no longer than 100 characters.
 | metadata      | JSON       | Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
 
+
+
 <a name="getAddress"/>
 ## Lob.getAddress
 Retrieves the details of an existing address. You need only supply the unique customer identifier that was returned upon address creation.
@@ -124,6 +126,11 @@ Create a new postcard.
 | message    | String     | Optional: Either message or back is required, choose one. Max of 350 characters to be included on the back of postcard. If included, we will generate the back based off to, from, and message arguments.
 | size       | String     | Optional: Specifies the size of the postcard. Must be either 4x6, 6x9, or 6x11. Defaults to 4x6. Only 4x6 postcards can be sent to international destinations.
 | metadata   | JSON       | Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and  Nested objects are not supported. See Metadata for more information.
+
+### `data` field format: 
+```json
+{"name": "Harry"}
+```
 
 <a name="retrievePostcard"/>
 ## Lob.retrievePostcard

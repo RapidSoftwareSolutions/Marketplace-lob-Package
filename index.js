@@ -81,6 +81,14 @@ for(let spec in specification) {
                     return;
                 }
             }
+
+            if(optHash[optkey]) {
+                try {
+                    options[optHash[optkey]] = JSON.parse(options[optHash[optkey]]);
+                } catch(e) {
+                    // Item id or json object, not string
+                }
+            }
         }
 
         if(fillIn.length > 0) {
