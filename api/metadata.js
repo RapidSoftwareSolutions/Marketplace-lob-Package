@@ -14,7 +14,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
@@ -77,7 +77,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "addressId",
             "type": "String",
@@ -96,7 +96,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "addressId",
             "type": "String",
@@ -115,7 +115,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -150,7 +150,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "name",
             "type": "String",
@@ -193,17 +193,17 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
             "info": "Optional."
         }, {
-            "name": "to",
+            "name": "cardTo",
             "type": "String",
             "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID"
         }, {
-            "name": "from",
+            "name": "cardFrom",
             "type": "String",
             "info": "Optional: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
@@ -244,7 +244,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "postcardId",
             "type": "String",
@@ -263,7 +263,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -298,7 +298,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
@@ -361,7 +361,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "letterId",
             "type": "String",
@@ -380,7 +380,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -415,7 +415,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
@@ -486,7 +486,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "checkId",
             "type": "String",
@@ -505,7 +505,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -540,7 +540,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
@@ -579,7 +579,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "bankAccountId",
             "type": "String",
@@ -598,7 +598,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "bankAccountId",
             "type": "String",
@@ -617,7 +617,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "bankAccountId",
             "type": "String",
@@ -640,7 +640,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -675,7 +675,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "description",
             "type": "String",
@@ -718,7 +718,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "areaId",
             "type": "String",
@@ -737,7 +737,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "limit",
             "type": "String",
@@ -772,7 +772,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "zipCode",
             "type": "String",
@@ -791,7 +791,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }, {
             "name": "zipCodes",
             "type": "JSON",
@@ -810,7 +810,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }],
         "callbacks": [{
             "name": "error",
@@ -825,7 +825,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "args": [{
             "name": "apiKey",
             "type": "credentials",
-            "info": "Required: Access token."
+            "info": "Required: Api Key."
         }],
         "callbacks": [{
             "name": "error",
