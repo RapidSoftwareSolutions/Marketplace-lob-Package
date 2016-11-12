@@ -83,7 +83,8 @@ for(let spec in specification) {
             }
         }
 
-        if(fillIn.length) {
+        if(fillIn.length > 0) {
+            console.log(fillIn)
             lib.callback('Fill in required fields.', res, {to}, fillIn);
             return;
         }
@@ -93,12 +94,7 @@ for(let spec in specification) {
         if(typeof client[methodSections][methodName] === 'function') { 
         	if(/delete|retrieve/.test(methodName)) {
         		for (var opt in options) break; options = options[opt];
-
-        		if(!options) {
-        			lib.callback('Fill in required fields.', res, {to}, [options]);
-    				return;
-        		}
-        	}
+            }
 
     		client[methodSections][methodName](options, (err, result) => {
     			if(err) {

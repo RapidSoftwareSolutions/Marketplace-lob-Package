@@ -61,8 +61,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: The total string must be no longer than 100 characters."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -130,12 +130,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON Object. Filter by metadata key-value pair."
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -201,11 +201,11 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "to",
             "type": "String",
-            "info": "Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID"
+            "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID"
         }, {
             "name": "from",
             "type": "String",
-            "info": "Optional: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID."
+            "info": "Optional: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
             "name": "front",
             "type": "String",
@@ -217,7 +217,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "data",
             "type": "JSON",
-            "info": "Optional: Must be an object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
+            "info": "Optional: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
         }, {
             "name": "message",
             "type": "String",
@@ -228,8 +228,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Specifies the size of the postcard. Must be either 4x6, 6x9, or 6x11. Defaults to 4x6. Only 4x6 postcards can be sent to international destinations."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -278,12 +278,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON Object. Filter by metadata key-value pair, e.g."
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -306,11 +306,11 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "letterTo",
             "type": "String",
-            "info": "Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID."
+            "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
             "name": "letterFrom",
             "type": "String",
-            "info": "Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID."
+            "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
             "name": "color",
             "type": "String",
@@ -322,7 +322,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "data",
             "type": "JSON",
-            "info": "Optional: Must be an object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
+            "info": "Optional: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
         }, {
             "name": "doubleSided",
             "type": "String",
@@ -345,8 +345,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Add an extra service to your letter. Options are certified or registered. Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. See pricing for extra costs incurred."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -395,12 +395,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON Object. Filter by metadata key-value pair."
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -423,11 +423,11 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "checkTo",
             "type": "String",
-            "info": "Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID."
+            "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
             "name": "checkFrom",
             "type": "String",
-            "info": "Required: Must either be an address ID or an object with correct address parameters. If an object is used, an address will be created for you and returned with an ID."
+            "info": "Required: Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID."
         }, {
             "name": "bankAccount",
             "type": "String",
@@ -463,15 +463,15 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "data",
             "type": "JSON",
-            "info": "Optional: Must be an object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
+            "info": "Optional: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
         }, {
             "name": "mailType",
             "type": "String",
             "info": "Optional: A string designating the mail postage type. Options are usps_first_class or ups_next_day_air. Defaults to usps_first_class. See pricing for extra costs incurred for ups_next_day_air."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -520,12 +520,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON Object. Filter by metadata key-value pair"
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -563,8 +563,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Required: The signatory associated with your account. This name will be printed on checks created with the bank account. If you prefer to use a custom signature image on your checks instead, please create your bank account from the Dashboard."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -625,7 +625,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "amounts",
             "type": "JSON",
-            "info": "Required: In live mode, an array containing the two micro deposits (in cents) placed in the bank account. In test mode, no micro deposits will be placed - use any two integers between 1 and 100"
+            "info": "Required: JSON Array. In live mode, an array containing the two micro deposits (in cents) placed in the bank account. In test mode, no micro deposits will be placed - use any two integers between 1 and 100"
         }],
         "callbacks": [{
             "name": "error",
@@ -655,12 +655,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON Object. Filter by metadata key-value pair."
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -683,7 +683,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "routes",
             "type": "JSON",
-            "info": "Required: Must enter a zip code or delivery route. This can be an array of zip codes or delivery routes."
+            "info": "Required: JSON Array. Must enter a zip code or delivery route. This can be an array of zip codes or delivery routes."
         }, {
             "name": "targetType",
             "type": "String",
@@ -699,11 +699,11 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "data",
             "type": "JSON",
-            "info": "Optiona: Must be an object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
+            "info": "Optiona: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}."
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Must be an object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
+            "type": "JSON",
+            "info": "Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information."
         }],
         "callbacks": [{
             "name": "error",
@@ -752,12 +752,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Optional: Request that the response include the total count by specifying include[]=total_count"
         }, {
             "name": "metadata",
-            "type": "String",
-            "info": "Optional: Filter by metadata key-value pair, e.g."
+            "type": "JSON",
+            "info": "Optional: JSON obejct. Filter by metadata key-value pair."
         }, {
             "name": "dateCreated",
             "type": "JSON",
-            "info": "Optional: Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
+            "info": "Optional: JSON object. Filter by ISO-8601 date or datetime, e.g. { gt: \u00272012-01-01\u0027, lt: \u00272012-01-31T12:34:56Z\u0027 } where gt is \u203a, lt is \u2039, gte is \u2265, and lte is \u2264"
         }],
         "callbacks": [{
             "name": "error",
@@ -795,7 +795,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "zipCodes",
             "type": "JSON",
-            "info": "Required: The zip codes or zip-routes to filter by."
+            "info": "Required: JSON Array. The zip codes or zip-routes to filter by."
         }],
         "callbacks": [{
             "name": "error",

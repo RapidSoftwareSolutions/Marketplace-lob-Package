@@ -15,7 +15,7 @@
 			"addressZip": "String",
 			"phone": "String",
 			"email": "String",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"getAddress": {
@@ -23,7 +23,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"addressId": "String"
+			"$addressId": "String"
 		}
 	},
 	"deleteAddress": {
@@ -31,7 +31,7 @@
 		"name": "delete",
 		"keys": {
 			"$apiKey": "String",
-			"addressId": "String"
+			"$addressId": "String"
 		}
 	},
 	"getAllAddresses": {
@@ -42,7 +42,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -73,7 +73,7 @@
 			"data": "JSON",
 			"message": "String",
 			"size": "String",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"retrievePostcard": {
@@ -81,7 +81,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"postcardId": "String"
+			"$postcardId": "String"
 		}
 	},
 	"getAllPostcards": {
@@ -92,7 +92,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -112,7 +112,7 @@
 			"returnEnvelope": "String",
 			"perforatedPage": "String",
 			"extraService": "String",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"retrieveLetter": {
@@ -120,7 +120,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"letterId": "String"
+			"$letterId": "String"
 		}
 	},
 	"getAllLetters": {
@@ -131,7 +131,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -153,7 +153,7 @@
 			"attachment": "String",
 			"data": "JSON",
 			"mailType": "String",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"retrieveCheck": {
@@ -161,7 +161,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"checkId": "String"
+			"$checkId": "String"
 		}
 	},
 	"getAllChecks": {
@@ -172,7 +172,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -186,7 +186,7 @@
 			"$accountNumber": "String",
 			"$accountType": "String",
 			"$signatory": "String",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"retrieveBankAccount": {
@@ -194,7 +194,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"bankAccountId": "String"
+			"$bankAccountId": "String"
 		}
 	},
 	"deleteBankAccount": {
@@ -202,7 +202,7 @@
 		"name": "delete",
 		"keys": {
 			"$apiKey": "String",
-			"bankAccountId": "String"
+			"$bankAccountId": "String"
 		}
 	},
 	"verifyBankAccount": {
@@ -222,7 +222,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -237,7 +237,7 @@
 			"front": "String",
 			"back": "String",
 			"data": "JSON",
-			"metadata": "String"
+			"metadata": "JSON"
 		}
 	},
 	"retrieveAreaMailing": {
@@ -245,7 +245,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"areaId": "String"
+			"$areaId": "String"
 		}
 	},
 	"getAllAreaMailings": {
@@ -256,7 +256,7 @@
 			"limit": "String",
 			"offset": "String",
 			"include": "String",
-			"metadata": "String",
+			"metadata": "JSON",
 			"dateCreated": "JSON"
 		}
 	},
@@ -265,7 +265,7 @@
 		"name": "retrieve",
 		"keys": {
 			"$apiKey": "String",
-			"zipCode": "String"
+			"$zipCode": "String"
 		}
 	},
 	"getAllRoutes": {

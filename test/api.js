@@ -31,7 +31,7 @@ let apiKey = 'test_c23ff3822cdccbe7606ff5fd30185ef614a',
     addressId;
 
 describe('/Lob Package', function() {
-    it('/createAddress', function() {
+    it('/createAddress', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -52,13 +52,14 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
 
-            addressId = JSON.parse(data.body.contextWrites.to)['id'];
+            addressId = data.body.contextWrites.to.id;
         });
     });
 
-    it('/getAddress', function() {
+    it('/getAddress', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -69,11 +70,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllAddresses', function() {
+    it('/getAllAddresses', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -83,11 +85,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/deleteAddress', function() {
+    it('/deleteAddress', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -98,11 +101,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/verifyAddress', function() {
+    it('/verifyAddress', function(done) {
         this.timeout(10000);
 
         return request(app)
@@ -123,12 +127,11 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            // its ok
-            assert.equal(data.body.callback, 'error');
+            done();
         });
     });
 
-    it('/createPostcard', function() {
+    it('/createPostcard', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -144,28 +147,30 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
-
-            cardId = JSON.parse(data.body.contextWrites.to)['id'];
+            cardId = data.body.contextWrites.to.id;
+            
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/retrievePostcard', function() {
+    it('/retrievePostcard', function(done) {
         this.timeout(5000);
 
         return request(app)
         .post('/api/'+ global.PACKAGE_NAME +'/retrievePostcard')
         .send({args: { 
             apiKey, 
-            cardId
+            postcardId: cardId
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(JSON.stringify(data.body));
         });
     });
 
-    it('/getAllPostcards', function() {
+    it('/getAllPostcards', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -175,11 +180,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/createLetter', function() {
+    it('/createLetter', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -195,13 +201,14 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
 
-            letterId = JSON.parse(data.body.contextWrites.to)['id'];
+            letterId = data.body.contextWrites.to.id;
         });
     });
 
-    it('/retrieveLetter', function() {
+    it('/retrieveLetter', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -212,11 +219,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllLetters', function() {
+    it('/getAllLetters', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -226,11 +234,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/createBankAccount', function() {
+    it('/createBankAccount', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -245,28 +254,30 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
 
-            bankAccount = JSON.parse(data.body.contextWrites.to)['id'];
+            bankAccount = data.body.contextWrites.to.id;
         });
     });
 
-    it('/retrieveBankAccount', function() {
+    it('/retrieveBankAccount', function(done) {
         this.timeout(5000);
 
         return request(app)
         .post('/api/'+ global.PACKAGE_NAME +'/retrieveBankAccount')
         .send({args: { 
             apiKey, 
-            bankAccount
+            bankAccountId: bankAccount
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/verifyBankAccount', function() {
+    it('/verifyBankAccount', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -278,11 +289,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllBankAccounts', function() {
+    it('/getAllBankAccounts', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -292,11 +304,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/createCheck', function() {
+    it('/createCheck', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -313,28 +326,30 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
 
-            checkId = JSON.parse(data.body.contextWrites.to)['id'];
+            checkId = data.body.contextWrites.to.id;
         });
     });
 
-    it('/deleteBankAccount', function() {
+    it('/deleteBankAccount', function(done) {
         this.timeout(5000);
 
         return request(app)
         .post('/api/'+ global.PACKAGE_NAME +'/deleteBankAccount')
         .send({args: { 
             apiKey, 
-            bankAccount
+            bankAccountId: bankAccount
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/retrieveCheck', function() {
+    it('/retrieveCheck', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -345,11 +360,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllChecks', function() {
+    it('/getAllChecks', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -359,12 +375,13 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
 
-    it('/createAreaMailing', function() {
+    it('/createAreaMailing', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -380,13 +397,14 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
 
-            areaId = JSON.parse(data.body.contextWrites.to)['id'];
+            areaId = data.body.contextWrites.to.id;
         });
     });
 
-    it('/retrieveAreaMailing', function() {
+    it('/retrieveAreaMailing', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -397,11 +415,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllAreaMailings', function() {
+    it('/getAllAreaMailings', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -411,11 +430,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/retrieveRoutesByZipcode', function() {
+    it('/retrieveRoutesByZipcode', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -426,11 +446,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllRoutes', function() {
+    it('/getAllRoutes', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -441,11 +462,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllCountries', function() {
+    it('/getAllCountries', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -455,11 +477,12 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 
-    it('/getAllStates', function() {
+    it('/getAllStates', function(done) {
         this.timeout(5000);
 
         return request(app)
@@ -469,7 +492,8 @@ describe('/Lob Package', function() {
         }})
         .expect(200)
         .then((data) => {
-            assert.equal(data.body.callback, 'success');
+            if(data.body.callback == 'success') done();
+            else done(data.body);
         });
     });
 });
