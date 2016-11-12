@@ -17,12 +17,12 @@ module.exports = (req, res) => {
     };
 
 	if(!apiKey || !bankAccountId) {
-		lib.callback('Fill in required fields.', res, {to});
+		lib.callback('Fill in required fields.', res, {to}, ['apiKey', 'bankAccountId']);
     	return;
 	}
 
 	try{
-		amounts = JSON.parse(amounts); 
+		if(typeof amounts == 'string') amounts = JSON.parse(amounts); 
 	} catch(e) {
 		lib.callback(`Error in parsing JSON field.`, res, {to});
     	return;

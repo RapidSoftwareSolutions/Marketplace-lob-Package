@@ -57,46 +57,52 @@ for(let spec in specification) {
 
 		let to       = req.body.args.to || "to",
 			options  = {},
+            fillIn   = [],
 			client;
 
-        if(!req.body.args.apiKey) {
-        	lib.callback(`Error: Fill in required fields to use the ${PACKAGE_NAME}.`, res, {to});
-        	return;
-        }
+        client = Lob(req.body.args.apiKey || 'badkey');
 
-        client = Lob(req.body.args.apiKey);
-        delete req.body.args.apiKey;
+        for(let key in specification[spec].keys) {
+            let clearkey = key[0] == '$' ? key.slice(1) : key,
+                optkey   = lib.toUnderscore(key).replace('$', '');
 
-		for(let key in req.body.args) {
-            let optkey = lib.toUnderscore(key);
-
-            if(specification[spec].keys[key] == "JSON") {
-            	try {
-            		req.body.args[key] = JSON.parse(req.body.args[key]);
-            	} catch(e) {
-            		lib.callback(`Error in parsing JSON field.`, res, {to});
-    				return;
-            	}
+            if(req.body.args[clearkey]) {
+                options[optHash[optkey] || optkey] = req.body.args[clearkey];
+            } else {
+                if(key[0] == '$') fillIn.push(clearkey);
+                continue;
             }
 
-            if(req.body.args[key]) {
-                options[optHash[optkey] || optkey] = req.body.args[key];
+            if(specification[spec].keys[key] == "JSON" && typeof req.body.args[clearkey] == 'string') {
+                try {
+                    req.body.args[clearkey] = JSON.parse(req.body.args[clearkey]);
+                } catch(e) {
+                    lib.callback(`Error in parsing JSON field.`, res, {to});
+                    return;
+                }
             }
         }
+
+        if(fillIn.length) {
+            lib.callback('Fill in required fields.', res, {to}, fillIn);
+            return;
+        }
+
+        delete options['api_key'];
 
         if(typeof client[methodSections][methodName] === 'function') { 
         	if(/delete|retrieve/.test(methodName)) {
         		for (var opt in options) break; options = options[opt];
 
         		if(!options) {
-        			lib.callback('Fill in required fields.', res, {to});
+        			lib.callback('Fill in required fields.', res, {to}, [options]);
     				return;
         		}
         	}
 
     		client[methodSections][methodName](options, (err, result) => {
     			if(err) {
-    				lib.callback(err, res, {to: to});
+    				lib.callback(err, res, {to});
     				return;
     			}
 

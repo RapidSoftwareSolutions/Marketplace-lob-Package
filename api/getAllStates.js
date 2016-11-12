@@ -15,7 +15,7 @@ module.exports = (req, res) => {
     };
 
 	if(!apiKey) {
-		lib.callback('Fill in required fields.', res, {to});
+		lib.callback('Fill in required fields.', res, {to}, ['apiKey']);
     	return;
 	}
 
