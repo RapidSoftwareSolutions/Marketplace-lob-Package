@@ -125,7 +125,7 @@ Create a new postcard.
 | size       | String     | Optional: Specifies the size of the postcard. Must be either 4x6, 6x9, or 6x11. Defaults to 4x6. Only 4x6 postcards can be sent to international destinations.
 | metadata   | JSON       | Optional: Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and  Nested objects are not supported. See Metadata for more information.
 
-### `from` and `to` field format: 
+### `cardFrom` and `cardTo` field format: 
 As JSON Object: 
 ```json
 "cardFrom": {
