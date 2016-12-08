@@ -24,7 +24,7 @@ module.exports = (req, res) => {
 	try{
 		if(typeof amounts == 'string') amounts = JSON.parse(amounts); 
 	} catch(e) {
-		lib.callback(`Error in parsing JSON field.`, res, {to});
+		lib.callback('json', res, {to});
     	return;
 	}
 
