@@ -243,7 +243,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "cardFrom",
             "type": "String",
             "info": "Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.",
-            "required": false
+            "required": true
         }, {
             "name": "front",
             "type": "File",
