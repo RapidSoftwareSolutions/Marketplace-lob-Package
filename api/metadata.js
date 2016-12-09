@@ -253,7 +253,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "back",
             "type": "File",
             "info": "Either message or back is required, choose one. A 4.25x6.25, 6.25x9.25, or 6.25x11.25 image to use as the back of the postcard, supplied as a URL, local file, or HTML string. This allows you to customize your back design, but we will still insert the recipient address for you. Follow the templates provided here: 4x6 template, 6x9 template, 6x11 template. For HTML examples, please see Postcard Examples Appendix..",
-            "required": false
+            "required": true
         }, {
             "name": "data",
             "type": "JSON",
