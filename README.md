@@ -1,4 +1,5 @@
 [settings]:https://github.com/RapidSoftwareSolutions/Marketplace-lob-Package/blob/master/instructions/settings.png?raw=true
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/Lob/functions?utm_source=RapidAPIGitHub_LobFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 
 # Lob Package
 This API enables developers to send real-life mail (postcards, checks etc.) to their customers via an automated API.
