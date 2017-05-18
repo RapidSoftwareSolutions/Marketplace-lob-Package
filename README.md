@@ -7,12 +7,12 @@ This API enables developers to send real-life mail (postcards, checks etc.) to t
 * Credentials: apiKey
 
 ## How to get credentials: 
-0. Go to [Lob Dashboard](https://dashboard.lob.com).
-1. Go to account settings.
+0. Log in or sign up at the to [Lob Dashboard](https://dashboard.lob.com).
+1. Go to account settings by clicking your name in the top right hand corner.
  
  ![Account settings][settings]
 
-2. Switch to _*API KEYS*_.
+2. Click the _*API KEYS*_ tab.
 3. Copy and save your credentials.
 
 | Field           | Type       | Description
