@@ -15,6 +15,7 @@ This API enables developers to send real-life mail (postcards, checks etc.) to t
 2. Click the _*API KEYS*_ tab.
 3. Copy and save your credentials.
 
+## Lob.createAddress
 | Field           | Type       | Description
 |-----------------|------------|----------
 | apiKey          | credentials| Api Key.
