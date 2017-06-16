@@ -11,6 +11,9 @@ const express       = require('express'),
     files           = fs.readdirSync('api/'),
     routes          = [];
 
+
+var redefinition = require('./redefinition');
+
 const PORT          = process.env.PORT || 8080;
 global.PACKAGE_NAME = "Lob";
 
@@ -54,6 +57,7 @@ for(let spec in specification) {
 
 	app.post(`/api/${PACKAGE_NAME}/${spec}`, (req, res) => {
 		req.body.args = lib.clearArgs(req.body.args);
+        req.body.args = redefinition.override(req.body.args);
 
 		let to       = req.body.args.to || "to",
 			options  = {},

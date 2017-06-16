@@ -74,9 +74,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -152,9 +166,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON Object. Filter by metadata key-value pair.",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
@@ -271,9 +299,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -328,9 +370,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON Object. Filter by metadata key-value pair, e.g.",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair, e.g.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
@@ -409,9 +465,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -466,9 +536,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON Object. Filter by metadata key-value pair.",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
@@ -557,9 +641,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -614,9 +712,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON Object. Filter by metadata key-value pair",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
@@ -665,9 +777,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -771,9 +897,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON Object. Filter by metadata key-value pair.",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
@@ -827,9 +967,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "Must be an JSON object with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. See Metadata for more information.",
-            "required": false
+            "type": "Array",
+            "info": "Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }],
         "callbacks": [{
             "name": "error",
@@ -884,9 +1038,23 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "metadata",
-            "type": "JSON",
-            "info": "JSON obejct. Filter by metadata key-value pair.",
-            "required": false
+            "type": "Array",
+            "info": "Filter by metadata key-value pair.",
+            "required": false,
+            "structure": [
+                {
+                    "name": "Key",
+                    "type": "String",
+                    "info": "Key name",
+                    "required": true
+                },
+                {
+                    "name": "value",
+                    "type": "String",
+                    "info": "Value string",
+                    "required": true
+                }
+            ]
         }, {
             "name": "dateCreated",
             "type": "JSON",
