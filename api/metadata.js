@@ -283,7 +283,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "Either message or back is required, choose one. A 4.25x6.25, 6.25x9.25, or 6.25x11.25 image to use as the back of the postcard, supplied as a URL, local file, or HTML string. This allows you to customize your back design, but we will still insert the recipient address for you. Follow the templates provided here: 4x6 template, 6x9 template, 6x11 template. For HTML examples, please see Postcard Examples Appendix..",
             "required": true
         }, {
-            "name": "data",
+            "name": "merge_variables",
             "type": "JSON",
             "info": "Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.",
             "required": false
@@ -434,7 +434,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "File can be an HTML string or an 8.5x11 PDF (uploaded file or URL). For design specifications, please see our PDF and HTML templates. For domestic destinations, the file limit is 60 pages single-sided or 120 pages double-sided. For international destinations, the file limit is 6 pages single-sided or 12 pages double-sided. PDFs that surpass the file limit will error, while HTML that renders more pages than the file limit will be trimmed. See pricing for extra costs incurred.",
             "required": true
         }, {
-            "name": "data",
+            "name": "merge_variables",
             "type": "JSON",
             "info": "Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.",
             "required": false
@@ -630,7 +630,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "A document to include with the check. This can be a local file or a URL to an 8.5 x11 PDF, PNG, or JPEG, or an HTML string. This will be printed double-sided in black \u0026 white and will be included in the envelope after the check page. If a PDF is provided, it must be 6 pages or fewer. If HTML is provided that renders to more than 6 pages, it will be trimmed. Please follow these design guidelines. See pricing for extra costs incurred.",
             "required": false
         }, {
-            "name": "data",
+            "name": "merge_variables",
             "type": "JSON",
             "info": "Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.",
             "required": false
@@ -961,9 +961,9 @@ module.exports.do = (req, res) => { res.status(200).send({
             "info": "A 6.25x11.25 image that will be the back of the postcard. Follow this template when creating your artwork. This can be a URL, local file, or an HTML string. Supported file types are PDF, PNG, and JPEG. For HTML examples, please see Area Examples Appendix.",
             "required": true
         }, {
-            "name": "data",
+            "name": "merge_variables",
             "type": "JSON",
-            "info": "Optiona: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.",
+            "info": "Optional: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters \u0022 and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.",
             "required": false
         }, {
             "name": "metadata",
