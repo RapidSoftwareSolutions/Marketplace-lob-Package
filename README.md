@@ -12,7 +12,7 @@ This API enables developers to send real-life mail (postcards, checks etc.) to t
 
  ![Account settings][settings]
 
-2. Click the _*API KEYS*_ tab.
+2. Select the _*API KEYS*_ tab.
 3. Copy and save your credentials.
 
 ## Custom datatypes:
