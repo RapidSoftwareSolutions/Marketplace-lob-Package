@@ -3,7 +3,7 @@
 
 # Lob Package
 This API enables developers to send real-life mail (postcards, checks etc.) to their customers via an automated API.
-* Domain: lob.com
+* Domain: [lob.com](https://lob.com)
 * Credentials: apiKey
 
 ## How to get credentials:
@@ -41,7 +41,7 @@ Creates a new address object.
 | addressZip    | String     | Required and must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 if address_country is US, otherwise optional and the total string can not be any longer than 40 characters.
 | phone         | String     | The total string must be no longer than 40 characters.
 | email         | String     | The total string must be no longer than 100 characters.
-| metadata      | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
+| metadata      | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information. 
 
 ## Lob.getAddress
 Retrieves the details of an existing address. You need only supply the unique customer identifier that was returned upon address creation.
