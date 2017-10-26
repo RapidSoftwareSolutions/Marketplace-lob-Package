@@ -10,7 +10,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         "credentials": ["apiKey"]
     },
     "steps": [
-        "Go to Lob Dashboard(https://dashboard.lob.com/)",
+        "Go to Lob Dashboard(https://dashboard.lob.com)",
         "Go to your account settings",
         "Switch to API KEYS",
         "Copy and save your credentials"
