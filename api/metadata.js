@@ -37,7 +37,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "company",
             "type": "String",
             "info": "Either name or company is required, you may also add both. The total string for company must be no longer than 200 characters. If both name and company are provided, they will be printed on two separate lines above the rest of the address.",
-            "required": false
+            "required": true
         }, {
             "name": "addressLine1",
             "type": "String",
@@ -47,7 +47,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "addressLine2",
             "type": "String",
             "info": "The total string must be no longer than 200 characters.",
-            "required": false
+            "required": true
         }, {
             "name": "addressCountry",
             "type": "String",
@@ -57,17 +57,17 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "addressCity",
             "type": "String",
             "info": "Required if address_country is US, otherwise optional. The total string must be no longer than 200 characters.",
-            "required": false
+            "required": true
         }, {
             "name": "addressState",
             "type": "String",
             "info": "Required and must be a 2 letter state short-name code if address_country is US, otherwise optional and the total string can not be any longer than 200 characters.",
-            "required": false
+            "required": true
         }, {
             "name": "addressZip",
             "type": "String",
             "info": "Required and must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 if address_country is US, otherwise optional and the total string can not be any longer than 40 characters.",
-            "required": false
+            "required": true
         }, {
             "name": "phone",
             "type": "String",
@@ -157,12 +157,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -266,7 +266,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "description",
             "type": "String",
-            "info": "Optional.",
+            "info": "An internal description that identifies this resource.",
             "required": false
         }, {
             "name": "cardTo",
@@ -287,7 +287,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "back",
             "type": "File",
             "info": "Either message or back is required, choose one. A 4.25x6.25, 6.25x9.25, or 6.25x11.25 image to use as the back of the postcard, supplied as a URL, local file, or HTML string. This allows you to customize your back design, but we will still insert the recipient address for you. Follow the templates provided here: 4x6 template, 6x9 template, 6x11 template. For HTML examples, please see Postcard Examples Appendix..",
-            "required": true
+            "required": false
         }, {
             "name": "merge_variables",
             "type": "JSON",
@@ -300,7 +300,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "size",
-            "type": "String",
+            "type": "Select",
+            "options": ["4x6","6x9","6x11"],
             "info": "Specifies the size of the postcard. Must be either 4x6, 6x9, or 6x11. Defaults to 4x6. Only 4x6 postcards can be sent to international destinations.",
             "required": false
         }, {
@@ -361,12 +362,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -417,7 +418,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "description",
             "type": "String",
-            "info": "Optional",
+            "info": "An internal description that identifies this resource.",
             "required": false
         }, {
             "name": "letterTo",
@@ -431,7 +432,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "color",
-            "type": "String",
+            "type": "Select",
+            "options": ["true","false"],
             "info": "Boolean. Set this key to true to if you would like to print in color. Set to false if you would like to print in black and white.",
             "required": true
         }, {
@@ -451,12 +453,14 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "addressPlacement",
-            "type": "String",
+            "type": "Select",
+            "options": ["top_first_page","insert_blank_page"],
             "info": "Specifies the location of the address information that will show through the double-window envelope. Options are top_first_page and insert_blank_page. Defaults to top_first_page, meaning we will print address information at the top of your provided first page. To see how this will impact your letter design, view our letter template. If you pass insert_blank_page, a blank address page will be inserted at the beginning of your file and you will be charged for the extra page.",
             "required": false
         }, {
             "name": "returnEnvelope",
-            "type": "String",
+            "type": "Select",
+            "options": ["true","false"],
             "info": "Boolean. Set this key to true and specify the perforated_page if you would like to include a return envelope with your letter. See pricing for extra costs incurred.",
             "required": false
         }, {
@@ -466,7 +470,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "extraService",
-            "type": "String",
+            "type": "Select",
+            "options": ["certified","registered"],
             "info": "Add an extra service to your letter. Options are certified or registered. Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. See pricing for extra costs incurred.",
             "required": false
         }, {
@@ -527,12 +532,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -583,7 +588,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "description",
             "type": "String",
-            "info": "Optional",
+            "info": "An internal description that identifies this resource.",
             "required": false
         }, {
             "name": "checkTo",
@@ -642,7 +647,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": false
         }, {
             "name": "mailType",
-            "type": "String",
+            "type": "Select",
+            "options": ["usps_first_class","ups_next_day_air"],
             "info": "A string designating the mail postage type. Options are usps_first_class or ups_next_day_air. Defaults to usps_first_class. See pricing for extra costs incurred for ups_next_day_air.",
             "required": false
         }, {
@@ -703,12 +709,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -759,7 +765,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "description",
             "type": "String",
-            "info": "Optional",
+            "info": "An internal description that identifies this resource.",
             "required": false
         }, {
             "name": "routingNumber",
@@ -773,7 +779,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "accountType",
-            "type": "String",
+            "type": "Select",
+            "options": ["either company","individual"],
             "info": "The type of entity that holds the account. Must be either company or individual.",
             "required": true
         }, {
@@ -888,12 +895,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -944,7 +951,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "description",
             "type": "String",
-            "info": "Optional",
+            "info": "An internal description that identifies this resource.",
             "required": false
         }, {
             "name": "routes",
@@ -953,7 +960,8 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "targetType",
-            "type": "String",
+            "type": "Select",
+            "options": ["all","residential"],
             "info": "A string designating the target recipients. Options are all and residential. Defaults to all.",
             "required": false
         }, {
@@ -1029,12 +1037,12 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "limit",
-            "type": "String",
+            "type": "Number",
             "info": "How many results to return, default=10, max 100, must be an integer",
             "required": false
         }, {
             "name": "offset",
-            "type": "String",
+            "type": "Number",
             "info": "Return requested # of items starting with the value, default=0, must be an integer",
             "required": false
         }, {
@@ -1105,9 +1113,15 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "zipCodes",
-            "type": "JSON",
-            "info": "JSON Array. The zip codes or zip-routes to filter by.",
-            "required": true
+            "type": "List",
+            "info": "The zip codes or zip-routes to filter by.",
+            "required": true,
+            "structure": {
+                "name": "zipCode",
+                "type": "String",
+                "info": "Single zip-code",
+                "required": true
+            }
         }],
         "callbacks": [{
             "name": "error",

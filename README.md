@@ -41,7 +41,7 @@ Creates a new address object.
 | addressZip    | String     | Required and must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 if address_country is US, otherwise optional and the total string can not be any longer than 40 characters.
 | phone         | String     | The total string must be no longer than 40 characters.
 | email         | String     | The total string must be no longer than 100 characters.
-| metadata      | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information. 
+| metadata      | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata). 
 
 ## Lob.getAddress
 Retrieves the details of an existing address. You need only supply the unique customer identifier that was returned upon address creation.
@@ -65,8 +65,8 @@ Returns a list of your addresses. The addresses are returned sorted by creation 
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair.
 | dateCreated| JSON       | JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
@@ -91,7 +91,7 @@ Create a new postcard.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| description| String     | Optional.
+| description| String     | An internal description that identifies this resource.
 | cardTo     | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID
 | cardFrom   | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | front      | File       | A 4.25x6.25, 6.25x9.25, or 6.25x11.25 image to use as the front of the postcard. This can be a URL, local file, or an HTML string. Supported file types are PDF, PNG, and JPEG. For HTML examples, please see Postcard Examples Appendix.
@@ -99,7 +99,7 @@ Create a new postcard.
 | merge_variables       | JSON       | Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
 | message    | String     | Either message or back is required, choose one. Max of 350 characters to be included on the back of postcard. If included, we will generate the back based off to, from, and message arguments.
 | size       | String     | Specifies the size of the postcard. Must be either 4x6, 6x9, or 6x11. Defaults to 4x6. Only 4x6 postcards can be sent to international destinations.
-| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
+| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrievePostcard
 Retrieves the postcard with a given ID. You need only supply the unique postcard ID that was returned upon postcard creation.
@@ -115,8 +115,8 @@ Returns a list of postcards. The returned postcards are sorted by creation date,
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair, e.g.
 | dateCreated| JSON       | JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
@@ -127,18 +127,18 @@ Create a new letter.
 | Field           | Type       | Description
 |-----------------|------------|----------
 | apiKey          | credentials| Api Key.
-| description     | String     | Optional
+| description     | String     | An internal description that identifies this resource.
 | letterTo        | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | letterFrom      | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
-| color           | String     | Boolean. Set this key to true to if you would like to print in color. Set to false if you would like to print in black and white.
+| color           | Boolean.     |  Set this key to true to if you would like to print in color. Set to false if you would like to print in black and white.
 | file            | File       | File can be an HTML string or an 8.5x11 PDF (uploaded file or URL). For design specifications, please see our PDF and HTML templates. For domestic destinations, the file limit is 60 pages single-sided or 120 pages double-sided. For international destinations, the file limit is 6 pages single-sided or 12 pages double-sided. PDFs that surpass the file limit will error, while HTML that renders more pages than the file limit will be trimmed. See pricing for extra costs incurred.
 | merge_variables            | JSON       | Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
 | doubleSided     | String     | Boolean that defaults to true. Use false to force single-sided printing.
 | addressPlacement| String     | Specifies the location of the address information that will show through the double-window envelope. Options are top_first_page and insert_blank_page. Defaults to top_first_page, meaning we will print address information at the top of your provided first page. To see how this will impact your letter design, view our letter template. If you pass insert_blank_page, a blank address page will be inserted at the beginning of your file and you will be charged for the extra page.
-| returnEnvelope  | String     | Boolean. Set this key to true and specify the perforated_page if you would like to include a return envelope with your letter. See pricing for extra costs incurred.
+| returnEnvelope  | Boolean     |  Set this key to true and specify the perforated_page if you would like to include a return envelope with your letter. See pricing for extra costs incurred.
 | perforatedPage  | String     | Required if return_envelope is true. Number of the page that should be perforated for use with return_envelope. Must be greater than or equal to 1. To see how perforation will impact your letter design, view our perforation guide.
 | extraService    | String     | Add an extra service to your letter. Options are certified or registered. Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. See pricing for extra costs incurred.
-| metadata        | Array      | Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and Nested objects are not supported. See Metadata for more information.
+| metadata        | Array      | Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveLetter
 Retrieves the letter with a given ID. You need only supply the unique letter ID that was returned upon letter creation.
@@ -154,8 +154,8 @@ Returns a list of letters. The letters are returned sorted by creation date, wit
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair.
 | dateCreated| JSON       | JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
@@ -166,7 +166,7 @@ Create a new check.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| description| String     | Optional
+| description| String     | An internal description that identifies this resource.
 | checkTo    | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | checkFrom  | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | bankAccount| String     | Must be a bank account ID. Only verified bank accounts may be used.
@@ -179,7 +179,7 @@ Create a new check.
 | attachment | File       | A document to include with the check. This can be a local file or a URL to an 8.5 x11 PDF, PNG, or JPEG, or an HTML string. This will be printed double-sided in black & white and will be included in the envelope after the check page. If a PDF is provided, it must be 6 pages or fewer. If HTML is provided that renders to more than 6 pages, it will be trimmed. Please follow these design guidelines. See pricing for extra costs incurred.
 | merge_variables       | JSON       | Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
 | mailType   | String     | A string designating the mail postage type. Options are usps_first_class or ups_next_day_air. Defaults to usps_first_class. See pricing for extra costs incurred for ups_next_day_air.
-| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
+| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveCheck
 Retrieves the check with a given ID. You need only supply the unique ID that was returned upon check creation.
@@ -195,8 +195,8 @@ Returns a list of checks. The returned checks are sorted by creation date, with 
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair
 | dateCreated| JSON       | JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
@@ -207,12 +207,12 @@ Create a new bank account. Bank accounts created in live mode will need to be ve
 | Field        | Type       | Description
 |--------------|------------|----------
 | apiKey       | credentials| Api Key.
-| description  | String     | Optional
+| description  | String     | An internal description that identifies this resource.
 | routingNumber| String     | The bank's routing number
 | accountNumber| String     | The account number at the bank
 | accountType  | String     | The type of entity that holds the account. Must be either company or individual.
 | signatory    | String     | The signatory associated with your account. This name will be printed on checks created with the bank account. If you prefer to use a custom signature image on your checks instead, please create your bank account from the Dashboard.
-| metadata     | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
+| metadata     | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveBankAccount
 Retrieves the bank account with a given ID. You need only supply the unique ID that was returned upon bank account creation.
@@ -245,8 +245,8 @@ Returns a list of bank accounts. The bank accounts are returned sorted by creati
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair.
 | dateCreated| JSON       | JSON Object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
@@ -257,13 +257,13 @@ Create a new mailing for a specific zip or delivery routes
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| description| String     | Optional
+| description| String     | An internal description that identifies this resource.
 | routes     | JSON       | JSON Array. Must enter a zip code or delivery route. This can be an array of zip codes or delivery routes.
 | targetType | String     | A string designating the target recipients. Options are all and residential. Defaults to all.
 | front      | File       | A 6.25x11.25 image that will be the front of the postcard. This can be a URL, local file, or an HTML string. Supported file types are PDF, PNG, and JPEG. For HTML examples, please see Area Examples Appendix.
 | back       | File       | A 6.25x11.25 image that will be the back of the postcard. Follow this template when creating your artwork. This can be a URL, local file, or an HTML string. Supported file types are PDF, PNG, and JPEG. For HTML examples, please see Area Examples Appendix.
 | merge_variables       | JSON       | Optiona: Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
-| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. See Metadata for more information.
+| metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveAreaMailing
 Retrieves the area mailing with a given ID. You need only supply the unique ID that was returned upon area mail creation.
@@ -279,8 +279,8 @@ Returns a list of area mailings. The area mailings are returned sorted by creati
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api Key.
-| limit      | String     | How many results to return, default=10, max 100, must be an integer
-| offset     | String     | Return requested # of items starting with the value, default=0, must be an integer
+| limit      | Number     | How many results to return, default=10, max 100, must be an integer
+| offset     | Number     | Return requested # of items starting with the value, default=0, must be an integer
 | include    | String     | Request that the response include the total count by specifying include[]=total_count
 | metadata   | Array      | Filter by metadata key-value pair.
 | dateCreated| JSON       | JSON object. Filter by ISO-8601 date or datetime, e.g. { gt: '2012-01-01', lt: '2012-01-31T12:34:56Z' } where gt is ›, lt is ‹, gte is ≥, and lte is ≤
