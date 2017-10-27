@@ -607,7 +607,7 @@ module.exports.do = (req, res) => { res.status(200).send({
             "required": true
         }, {
             "name": "amount",
-            "type": "String",
+            "type": "Number",
             "info": "The payment amount to be sent in dollars. Must be less than 1000000.",
             "required": true
         }, {
@@ -780,7 +780,7 @@ module.exports.do = (req, res) => { res.status(200).send({
         }, {
             "name": "accountType",
             "type": "Select",
-            "options": ["either company","individual"],
+            "options": ["company","individual"],
             "info": "The type of entity that holds the account. Must be either company or individual.",
             "required": true
         }, {

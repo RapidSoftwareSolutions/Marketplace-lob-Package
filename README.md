@@ -7,13 +7,13 @@ This API enables developers to send real-life mail (postcards, checks etc.) to t
 * Credentials: apiKey
 
 ## How to get credentials:
-0. Log in or sign up at the to [Lob Dashboard](https://dashboard.lob.com).
-1. Go to account settings by clicking your name in the top right hand corner.
+1. Log in or sign up at the to [Lob Dashboard](https://dashboard.lob.com).
+2. Go to account settings by clicking your name in the top right hand corner.
 
  ![Account settings][settings]
 
-2. Select the _*API KEYS*_ tab.
-3. Copy and save your credentials.
+3. Select the _*API KEYS*_ tab.
+4. Copy and save your credentials.
 
 ## Custom datatypes:
  |Datatype|Description|Example
@@ -135,9 +135,9 @@ Create a new letter.
 | merge_variables            | JSON       | Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
 | doubleSided     | String     | Boolean that defaults to true. Use false to force single-sided printing.
 | addressPlacement| String     | Specifies the location of the address information that will show through the double-window envelope. Options are top_first_page and insert_blank_page. Defaults to top_first_page, meaning we will print address information at the top of your provided first page. To see how this will impact your letter design, view our letter template. If you pass insert_blank_page, a blank address page will be inserted at the beginning of your file and you will be charged for the extra page.
-| returnEnvelope  | Boolean     |  Set this key to true and specify the perforated_page if you would like to include a return envelope with your letter. See pricing for extra costs incurred.
-| perforatedPage  | String     | Required if return_envelope is true. Number of the page that should be perforated for use with return_envelope. Must be greater than or equal to 1. To see how perforation will impact your letter design, view our perforation guide.
-| extraService    | String     | Add an extra service to your letter. Options are certified or registered. Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. See pricing for extra costs incurred.
+| returnEnvelope  | Boolean     |  Set this key to true and specify the perforated_page if you would like to include a return envelope with your letter. [See pricing for extra costs incurred](https://lob.com/pricing/letters#compare).
+| perforatedPage  | String     | Required if return_envelope is true. Number of the page that should be perforated for use with return_envelope. Must be greater than or equal to 1. To see how perforation will impact your letter design, [view our perforation guide](https://s3-us-west-2.amazonaws.com/lob-assets/letters-perf-template.pdf).
+| extraService    | String     | Add an extra service to your letter. Options are certified or registered. Certified provides tracking and delivery confirmation for domestic destinations. Registered provides tracking and confirmation for international addresses. [See pricing](https://lob.com/pricing/letters#compare) for extra costs incurred.
 | metadata        | Array      | Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveLetter
@@ -170,15 +170,15 @@ Create a new check.
 | checkTo    | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | checkFrom  | String     | Must either be an address ID or an JSON object with correct address parameters. If an JSON object is used, an address will be created for you and returned with an ID.
 | bankAccount| String     | Must be a bank account ID. Only verified bank accounts may be used.
-| amount     | String     | The payment amount to be sent in dollars. Must be less than 1000000.
+| amount     | Number     | The payment amount to be sent in dollars. Must be less than 1000000.
 | memo       | String     | Max of 40 characters to be included on the memo line of the check.
 | checkNumber| String     | Checks will default starting at 10000 and increment accordingly.
 | logo       | File       | This can be a URL or local file. The image must be a square, have color model of RGB or CMYK, be at least 100px X 100px, and have a transparent background. The accepted file types are PNG and JPEG. If supplied, the logo is printed in grayscale and placed in the upper-left corner of the check.
 | message    | String     | Either message or check_bottom, choose one. Max of 400 characters to be included at the bottom of the check page.
 | checkBottom| File       | Either message or file, choose one. This can be a local file or a URL to a 1 page 8.5x11 PDF, PNG, or JPEG, or an HTML string. This will be printed on the bottom of the check page in black & white. You must follow this template.
-| attachment | File       | A document to include with the check. This can be a local file or a URL to an 8.5 x11 PDF, PNG, or JPEG, or an HTML string. This will be printed double-sided in black & white and will be included in the envelope after the check page. If a PDF is provided, it must be 6 pages or fewer. If HTML is provided that renders to more than 6 pages, it will be trimmed. Please follow these design guidelines. See pricing for extra costs incurred.
+| attachment | File       | A document to include with the check. This can be a local file or a URL to an 8.5 x11 PDF, PNG, or JPEG, or an HTML string. This will be printed double-sided in black & white and will be included in the envelope after the check page. If a PDF is provided, it must be 6 pages or fewer. If HTML is provided that renders to more than 6 pages, it will be trimmed. Please follow these [design guidelines](https://s3-us-west-2.amazonaws.com/lob-assets/check-attachment-template.pdf). See [pricing](https://lob.com/pricing/checks#compare) for extra costs incurred.
 | merge_variables       | JSON       | Must be an JSON object with up to 40 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters " and  Nested objects are not supported. For parameters that accept HTML strings, you can provide optional data variables that will be merged with your HTML. To add a variable, insert double curly braces into your HTML like so: {{variable_name}}.
-| mailType   | String     | A string designating the mail postage type. Options are usps_first_class or ups_next_day_air. Defaults to usps_first_class. See pricing for extra costs incurred for ups_next_day_air.
+| mailType   | String     | A string designating the mail postage type. Options are usps_first_class or ups_next_day_air. Defaults to usps_first_class. See [pricing](https://lob.com/pricing/checks#compare) for extra costs incurred for ups_next_day_air.
 | metadata   | Array      | Must be an Array with up to 20 key-value pairs. Keys must at most 40 characters and values must be at most 500 characters. Neither can contain the characters and  Nested objects are not supported. [See Metadata for more information](https://lob.com/docs#metadata).
 
 ## Lob.retrieveCheck
