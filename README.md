@@ -85,6 +85,34 @@ Validates a given address.
 | addressZip    | String     | Required and must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 if address_country is US, otherwise optional and the total string can not be any longer than 40 characters.
 | addressCountry| String     | Must be a 2 letter country short-name code (ISO 3166). Defaults to US.
 
+## Lob.verifyUsAddress
+Verify a domestic address. Only requests with live API keys will use valid CASS data to generate a response. Properly formatted requests with test API keys will return the provided input with a different deliverability based on the input zip_code.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| Api Key.
+| recipient          | String     | The intended recipient, typically a person's or firm's name.
+| primaryLine  | String     | The primary delivery line (usually the street address) of the address.
+| secondaryLine  | String     | The secondary delivery line of the address. This field is typically empty but may contain information if primary_line is too long.
+| urbanization   | String     | Only present for addresses in Puerto Rico. An urbanization refers to an area, sector, or development within a city.
+| zipCode  | String     | Required if no city and state are passed. Must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 or 12345 1234.
+| city    | String     | City and state are required if no zip_code is passed.
+| state | String     | City and state are required if no zip_code is passed.
+
+## Lob.verifyInternationalAddress
+Verify an international address. Requests to this endpoint with a test API key will return a 403 error.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| Api Key.
+| recipient          | String     | The intended recipient, typically a person's or firm's name.
+| primaryLine  | String     | The primary delivery line (usually the street address) of the address.
+| secondaryLine  | String     | The secondary delivery line of the address. This field is typically empty but may contain information if primary_line is too long.
+| addressCountry   | String     | Must be a 2 letter country short-name code (ISO 3166). Does not accept US, AS, PR, FM, GU, MH, MP, PW, or VI. For these addresses, please use the US verification API.
+| postalCode  | String     | The postal code.
+| city    | String     | City and state are required if no zip_code is passed.
+| state | String     | City and state are required if no zip_code is passed.
+
 ## Lob.createPostcard
 Create a new postcard.
 

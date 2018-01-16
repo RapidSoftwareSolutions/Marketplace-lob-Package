@@ -202,48 +202,101 @@ module.exports.do = (req, res) => { res.status(200).send({
             "name": "success",
             "info": "success"
         }]
-    }, {
-        "name": "verifyAddress",
-        "description": "Validates a given address.",
+    },{
+        "name": "verifyInternationalAddress",
+        "description": "Address verification for international (non-US) addresses.",
         "args": [{
             "name": "apiKey",
             "type": "credentials",
             "info": "Api Key.",
             "required": true
         }, {
-            "name": "name",
+            "name": "recipient",
             "type": "String",
-            "info": "Either name or company is required, you may also add both. The total string for name must be no longer than 50 characters. If both name and company are provided, they will be printed on two separate lines above the rest of the address.",
+            "info": "The intended recipient, typically a person's or firm's name.",
             "required": false
         }, {
-            "name": "addressLine1",
+            "name": "primaryLine",
             "type": "String",
-            "info": "The total string must be no longer than 200 characters.",
-            "required": true
-        }, {
-            "name": "addressLine2",
-            "type": "String",
-            "info": "The total string must be no longer than 200 characters.",
+            "info": "The primary delivery line (usually the street address) of the address.",
             "required": false
         }, {
-            "name": "addressCity",
+            "name": "secondaryLine",
             "type": "String",
-            "info": "Required if address_country is US, otherwise optional. The total string must be no longer than 200 characters.",
+            "info": "The secondary delivery line of the address. This field is typically empty but may contain information if primary_line is too long.",
             "required": false
         }, {
-            "name": "addressState",
+            "name": "postalCode",
             "type": "String",
-            "info": "Required and must be a 2 letter state short-name code if address_country is US, otherwise optional and the total string can not be any longer than 200 characters.",
+            "info": "The postal code.",
             "required": false
-        }, {
-            "name": "addressZip",
-            "type": "String",
-            "info": "Required and must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 if address_country is US, otherwise optional and the total string can not be any longer than 40 characters.",
-            "required": true
         }, {
             "name": "addressCountry",
             "type": "String",
-            "info": "Must be a 2 letter country short-name code (ISO 3166). Defaults to US.",
+            "info": "Must be a 2 letter country short-name code (ISO 3166). Does not accept US, AS, PR, FM, GU, MH, MP, PW, or VI. For these addresses, please use the US verification API.",
+            "required": true
+        }, {
+            "name": "city",
+            "type": "String",
+            "info": "City and state are required if no zip_code is passed.",
+            "required": false
+        }, {
+            "name": "state",
+            "type": "String",
+            "info": "City and state are required if no zip_code is passed.",
+            "required": false
+        }],
+        "callbacks": [{
+            "name": "error",
+            "info": "unverified",
+            "required": false
+        }, {
+            "name": "success",
+            "info": "verified",
+            "required": false
+        }]
+    }, {
+        "name": "verifyUsAddress",
+        "description": "Verify a domestic address. Only requests with live API keys will use valid CASS data to generate a response. Properly formatted requests with test API keys will return the provided input with a different deliverability based on the input zip_code.",
+        "args": [{
+            "name": "apiKey",
+            "type": "credentials",
+            "info": "Api Key.",
+            "required": true
+        }, {
+            "name": "recipient",
+            "type": "String",
+            "info": "The intended recipient, typically a person's or firm's name.",
+            "required": false
+        }, {
+            "name": "primaryLine",
+            "type": "String",
+            "info": "The primary delivery line (usually the street address) of the address.",
+            "required": true
+        }, {
+            "name": "secondaryLine",
+            "type": "String",
+            "info": "The secondary delivery line of the address. This field is typically empty but may contain information if primary_line is too long.",
+            "required": false
+        }, {
+            "name": "urbanization",
+            "type": "String",
+            "info": "Only present for addresses in Puerto Rico. An urbanization refers to an area, sector, or development within a city.",
+            "required": false
+        }, {
+            "name": "zipCode",
+            "type": "String",
+            "info": "Required if no city and state are passed. Must follow the ZIP format of 12345 or ZIP+4 format of 12345-1234 or 12345 1234.",
+            "required": false
+        }, {
+            "name": "city",
+            "type": "String",
+            "info": "City and state are required if no zip_code is passed.",
+            "required": false
+        }, {
+            "name": "state",
+            "type": "String",
+            "info": "City and state are required if no zip_code is passed.",
             "required": false
         }],
         "callbacks": [{

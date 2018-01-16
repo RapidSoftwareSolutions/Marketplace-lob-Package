@@ -46,18 +46,32 @@
 			"dateCreated": "JSON"
 		}
 	},
-	"verifyAddress": {
-		"section": "verification",
+	"verifyUsAddress": {
+		"section": "usVerifications",
 		"name": "verify",
 		"keys": {
 			"$apiKey": "String",
-			"name": "String",
-			"addressLine1": "String",
-			"addressLine2": "String",
-			"addressCity": "String",
-			"addressState": "String",
-			"addressZip": "String",
-			"addressCountry": "String"
+			"recipient": "String",
+			"primaryLine": "String",
+			"secondaryLine": "String",
+			"urbanization": "String",
+			"city": "String",
+			"state": "String",
+			"zipCode": "String"
+		}
+	},
+	"verifyInternationalAddress": {
+		"section": "intlVerifications",
+		"name": "verify",
+		"keys": {
+			"$apiKey": "String",
+			"recipient": "String",
+			"primaryLine": "String",
+			"secondaryLine": "String",
+			"postalCode": "String",
+			"city": "String",
+			"state": "String",
+			"addressountry": "String"
 		}
 	},
 	"createPostcard": {
